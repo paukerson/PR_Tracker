@@ -17,6 +17,8 @@ final class Exercise {
     var name: String
     var defaultTempo: [Int]  // [Eccentric, Pause, Concentric]
     var targetedMuscles: [ExerciseMuscle] = []
+    var goalWeight: Double?
+    var goalReps: Int?
     
     @Relationship(inverse: \Equipment.exercises)
     var equipment: Equipment?
@@ -29,6 +31,30 @@ final class Exercise {
     // Computed property for easy access
     var prLift: Lift? {
         _prLift
+    }
+    
+    // MARK: GOAL PROGRESS
+    var hasGoal: Bool {
+        goalWeight != nil && goalReps != nil
+    }
+    // 1RM Calculation (Epley formula)
+    var oneRepMax: Double? {
+        guard let pr = prLift else { return nil }
+        return pr.weight * (1 + Double(pr.reps) / 30)
+    }
+    
+    // Goal 1RM
+    var goalOneRepMax: Double? {
+        guard let goalWeight, let goalReps else { return nil }
+        return goalWeight * (1 + Double(goalReps) / 30)
+    }
+    
+    // Progress (0-1)
+    var goalProgress: Double {
+        guard hasGoal, let current = oneRepMax, let goal = goalOneRepMax else {
+            return 0
+        }
+        return min(current / goal, 1.0)
     }
 
     // MARK: Init
