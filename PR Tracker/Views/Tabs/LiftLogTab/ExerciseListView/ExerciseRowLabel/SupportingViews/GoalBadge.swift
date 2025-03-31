@@ -18,8 +18,10 @@ struct GoalBadge: View {
                 .foregroundStyle(Color("SecondaryMint"))
                 .font(.subheadline)
             Text("Goal ")
+                .foregroundStyle(Color("TextSecondary"))
                 .font(.system(.caption, design: .monospaced))
             Text("\(weight.formatted())kg × \(reps)")
+                .foregroundStyle(Color("TextPrimary"))
                 .font(.system(.footnote, design: .monospaced))
         }
     }

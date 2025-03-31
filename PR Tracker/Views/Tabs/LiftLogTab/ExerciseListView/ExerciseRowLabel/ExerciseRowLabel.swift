@@ -36,7 +36,7 @@ struct ExerciseRowLabel: View {
                 } else {
                     ExerciseRowStats(
                         prText: prText,
-                        totalLifts: exercise.lifts.count
+                        totalLifts: exercise.totalLifts
                     )
                 }
                 

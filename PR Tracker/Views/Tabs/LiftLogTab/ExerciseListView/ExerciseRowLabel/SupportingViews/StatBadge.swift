@@ -17,9 +17,10 @@ struct StatBadge: View {
         HStack(alignment: .bottom) {
             Text(title)
                 .font(.caption)
-                .foregroundStyle(color.opacity(0.8))
+                .foregroundStyle(Color("TextSecondary"))
             Text(value)
                 .font(.system(.subheadline, design: .rounded))
+                .foregroundStyle(Color("TextPrimary"))
         }
     }
 }

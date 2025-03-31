@@ -24,6 +24,7 @@ final class Exercise {
     var equipment: Equipment?
     
     var lifts: [Lift] = []
+    var totalLifts: Int { lifts.count }
     
     @Relationship
     private var _prLift: Lift?  // SwiftData-managed PR reference

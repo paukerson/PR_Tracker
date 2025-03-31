@@ -18,8 +18,10 @@ struct PRBadge: View {
                 .foregroundStyle(Color("PrimaryCoral"))
                 .font(.subheadline)
             Text("PR ")
+                .foregroundStyle(Color("TextSecondary"))
                 .font(.system(.caption, design: .monospaced))
             Text("\(weight.formatted())kg × \(reps)")
+                .foregroundStyle(Color("TextPrimary"))
                 .font(.system(.footnote, design: .monospaced))
         }
     }

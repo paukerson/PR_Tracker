@@ -12,20 +12,22 @@ import SwiftData
 struct LiftLogTab: View {
     
     @Query private var exercises: [Exercise]
+    // TODO: implement not sorting the entire array when adding an exercise (array will never be big tho)
+    private var exercisesSorted: [Exercise] {
+        exercises.sorted(by: {
+            $0.totalLifts != $1.totalLifts ? $0.totalLifts > $1.totalLifts : $0.hasGoal
+        })
+    }
+    @State private var path = NavigationPath()
+    
     
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVStack {
-                    ForEach(exercises) { exercise in
-                        ExerciseRow(exercise: exercise)
-                    }
+        NavigationStack(path: $path) {
+            ExerciseListView(exercises: exercisesSorted)
+                .navigationDestination(for: Exercise.self) { exercise in
+                    ExerciseDetailView(exercise: exercise)
                 }
-                .padding([.horizontal, .top], 10)
-            }
-            .navigationTitle("Exercises")
         }
-
     }
 }
 
@@ -35,20 +37,4 @@ struct LiftLogTab: View {
     
     return MainTabView()
         .modelContainer(MockData.previewContainer)
-}
-
-struct ExerciseRow: View {
-    
-    let exercise: Exercise
-    
-    var body: some View {
-        NavigationLink {
-            Text(exercise.name)
-            List(exercise.lifts) { lift in
-                Text("\(lift.weight)x\(lift.reps)")
-            }
-        } label: {
-            ExerciseRowLabel(exercise: exercise)
-        }
-    }
 }
