@@ -13,29 +13,29 @@ struct MainTabView: View {
         TabView {
             // 1. Lift Log Tab
             LiftLogTab()
-            .tabItem {
-                Label("Workouts", systemImage: "dumbbell")
-            }
+                .tabItem {
+                    Label("Exercises", systemImage: "dumbbell")
+                }
             
             // 2. PRs Tab
             PRsTab()
-            .tabItem {
-                Label("PRs", systemImage: "trophy")
-            }
+                .tabItem {
+                    Label("PRs", systemImage: "trophy")
+                }
             
             // 3. Stats Tab
             StatsTab()
-            .tabItem {
-                Label("Stats", systemImage: "chart.line.uptrend.xyaxis")
-            }
+                .tabItem {
+                    Label("Stats", systemImage: "chart.line.uptrend.xyaxis")
+                }
             
             // 4. More Tab (optional)
             Text("To be added").font(.largeTitle)
-            .tabItem {
-                Label("More", systemImage: "ellipsis")
-            }
+                .tabItem {
+                    Label("More", systemImage: "ellipsis")
+                }
         }
-        .tint(.teal) // Your app's accent color
+        .tint(Color(.secondaryMint)) // Accent colour
     }
 }
 

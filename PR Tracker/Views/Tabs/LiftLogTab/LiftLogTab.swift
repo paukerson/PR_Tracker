@@ -22,6 +22,7 @@ struct LiftLogTab: View {
     
     
     var body: some View {
+        
         NavigationStack(path: $path) {
             ExerciseListView(exercises: exercisesSorted)
                 .navigationDestination(for: Exercise.self) { exercise in
