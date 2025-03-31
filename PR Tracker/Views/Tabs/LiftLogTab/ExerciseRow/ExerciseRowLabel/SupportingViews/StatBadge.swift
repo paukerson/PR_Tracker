@@ -14,9 +14,9 @@ struct StatBadge: View {
     let color: Color
     
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack(alignment: .bottom) {
             Text(title)
-                .font(.caption2)
+                .font(.caption)
                 .foregroundStyle(color.opacity(0.8))
             Text(value)
                 .font(.system(.subheadline, design: .rounded))

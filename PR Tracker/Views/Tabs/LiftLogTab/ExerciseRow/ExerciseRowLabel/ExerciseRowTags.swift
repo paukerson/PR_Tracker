@@ -13,7 +13,7 @@ struct ExerciseRowTags: View {
     let hasGoal: Bool
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
+        ScrollView(.horizontal) {
             HStack(spacing: 6) {
                 ForEach(muscles, id: \.self) { muscle in
                     Text(muscle.muscle)
@@ -26,9 +26,10 @@ struct ExerciseRowTags: View {
                                     Color("PrimaryCoral").opacity(0.2) :
                                     Color("SecondaryMint").opacity(0.2))
                         )
-                        .foregroundColor(Color("TextSecondary"))
+                        .foregroundStyle(Color("TextSecondary"))
                 }
             }
         }
+        .scrollIndicators(.never)
     }
 }

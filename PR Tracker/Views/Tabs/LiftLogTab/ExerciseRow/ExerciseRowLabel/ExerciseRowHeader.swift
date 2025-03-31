@@ -17,7 +17,7 @@ struct ExerciseRowHeader: View {
         HStack {
             Text(name)
                 .font(.system(size: 17, weight: .semibold))
-                .foregroundColor(Color("TextPrimary"))
+                .foregroundStyle(Color("TextPrimary"))
             
             Spacer()
             
@@ -30,7 +30,7 @@ struct ExerciseRowHeader: View {
                             Color("PrimaryCoral").opacity(0.2) :
                             Color("SecondaryMint").opacity(0.2))
                 )
-                .foregroundColor(hasGoal ?
+                .foregroundStyle(hasGoal ?
                                Color("PrimaryCoral") :
                                Color("SecondaryMint"))
         }

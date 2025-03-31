@@ -14,8 +14,10 @@ struct ExerciseRowLabel: View {
     
     var body: some View {
         ZStack {
+            // Background Layer
             ExerciseRowBackground(hasGoal: exercise.hasGoal)
             
+            // Content Layer
             VStack(alignment: .leading, spacing: 8) {
                 ExerciseRowHeader(
                     name: exercise.name,

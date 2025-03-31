@@ -29,10 +29,10 @@ struct ExerciseRowBackground: View {
                             endPoint: .bottomTrailing
                         )
                     )
-                    .overlay(
+                    .overlay(alignment: .center, content: {
                         RoundedRectangle(cornerRadius: 12)
                             .stroke(Color("PrimaryCoral").opacity(0.3), lineWidth: 1)
-                    )
+                    })
             }
         }
     }

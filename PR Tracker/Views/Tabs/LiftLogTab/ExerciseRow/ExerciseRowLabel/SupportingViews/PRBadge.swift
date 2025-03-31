@@ -13,11 +13,14 @@ struct PRBadge: View {
     let reps: Int
     
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(alignment: .bottom, spacing: 2) {
             Image(systemName: "crown.fill")
                 .foregroundStyle(Color("PrimaryCoral"))
-            Text("PR: \(weight.formatted())kg × \(reps)")
+                .font(.subheadline)
+            Text("PR ")
                 .font(.system(.caption, design: .monospaced))
+            Text("\(weight.formatted())kg × \(reps)")
+                .font(.system(.footnote, design: .monospaced))
         }
     }
 }

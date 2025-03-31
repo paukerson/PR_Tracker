@@ -13,11 +13,14 @@ struct GoalBadge: View {
     let reps: Int
     
     var body: some View {
-        HStack(spacing: 4) {
+        HStack(alignment: .bottom, spacing: 2) {
             Image(systemName: "flag.fill")
                 .foregroundStyle(Color("SecondaryMint"))
-            Text("Goal: \(weight.formatted())kg × \(reps)")
+                .font(.subheadline)
+            Text("Goal ")
                 .font(.system(.caption, design: .monospaced))
+            Text("\(weight.formatted())kg × \(reps)")
+                .font(.system(.footnote, design: .monospaced))
         }
     }
 }
