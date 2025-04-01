@@ -19,8 +19,6 @@ final class Exercise {
     var targetedMuscles: [ExerciseMuscle] = []
     var goalWeight: Double?
     var goalReps: Int?
-    
-    @Relationship(inverse: \Equipment.exercises)
     var equipment: Equipment?
     
     var lifts: [Lift] = []

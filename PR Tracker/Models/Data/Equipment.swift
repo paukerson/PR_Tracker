@@ -12,7 +12,6 @@ import SwiftData
 final class Equipment {
     @Attribute(.unique) var id: UUID
     var name: String  // Matches EquipmentType rawValue
-    var exercises: [Exercise] = []
     
     init(
         id: UUID = UUID(),
