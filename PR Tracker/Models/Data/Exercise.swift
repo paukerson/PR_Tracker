@@ -121,6 +121,7 @@ final class Exercise {
     private func isNewPR(_ lift: Lift) -> Bool {
         guard let currentPR = _prLift else { return true }
         
+        // TODO: implement better logic
         // PR logic: heavier OR same weight with more reps
         return lift.weight > currentPR.weight ||
               (lift.weight == currentPR.weight && lift.reps > currentPR.reps)

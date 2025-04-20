@@ -12,18 +12,20 @@ import SwiftData
 struct LiftLogTab: View {
     
     @Query private var exercises: [Exercise]
-    // TODO: implement not sorting the entire array when adding an exercise (array will never be big tho)
+    
+    // sorting by totalLifts, hasGoal
     private var exercisesSorted: [Exercise] {
         exercises.sorted(by: {
             $0.totalLifts != $1.totalLifts ? $0.totalLifts > $1.totalLifts : $0.hasGoal
         })
     }
-    @State private var path = NavigationPath()
+// path probably not needed for now
+//    @State private var path = NavigationPath()
     
     
     var body: some View {
         
-        NavigationStack(path: $path) {
+        NavigationStack(/*path: $path*/) {
             ExerciseListView(exercises: exercisesSorted)
                 .navigationDestination(for: Exercise.self) { exercise in
                     ExerciseDetailView(exercise: exercise)

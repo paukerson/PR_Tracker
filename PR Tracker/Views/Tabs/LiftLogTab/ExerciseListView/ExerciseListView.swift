@@ -43,7 +43,7 @@ struct ExerciseListView: View {
     
     private var addLiftButton: some View {
         Button {
-            // Add lift action
+            // TODO: Add lift action
         } label: {
             Label("Lift", systemImage: "plus")
         }
@@ -51,7 +51,7 @@ struct ExerciseListView: View {
     
     private var editExerciseButton: some View {
         Button {
-            // Edit action
+            // TODO: Edit action
         } label: {
             Label("Edit", systemImage: "gearshape")
         }

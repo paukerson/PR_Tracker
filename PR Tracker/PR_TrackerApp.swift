@@ -18,10 +18,7 @@ struct PR_TrackerApp: App {
         ])
         
         let modelConfiguration = ModelConfiguration(
-            schema: schema,
-            isStoredInMemoryOnly: false,
-            allowsSave: true,
-            cloudKitDatabase: .automatic  // Enable iCloud sync if needed
+            schema: schema
         )
 
         do {
@@ -42,8 +39,8 @@ struct PR_TrackerApp: App {
         WindowGroup {
             // 3. Root View with Dependency Injection
             MainTabView()
-                .environment(\.modelContext, sharedModelContainer.mainContext)
-                .environmentObject(WorkoutData())  // For non-SwiftData state
+//                .environment(\.modelContext, sharedModelContainer.mainContext)
+//                .environmentObject(WorkoutData())  // For non-SwiftData state
         }
         .modelContainer(sharedModelContainer)
     }
