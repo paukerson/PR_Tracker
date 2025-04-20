@@ -14,9 +14,9 @@ struct ExerciseRowStats: View {
     
     var body: some View {
         HStack {
-            StatBadge(title: "PR", value: prText, color: .secondary)
+            StatBadge(title: "PR", value: prText)
             Spacer()
-            StatBadge(title: "Total", value: "\(totalLifts)", color: .secondary)
+            StatBadge(title: "Total", value: "\(totalLifts)")
         }
     }
 }

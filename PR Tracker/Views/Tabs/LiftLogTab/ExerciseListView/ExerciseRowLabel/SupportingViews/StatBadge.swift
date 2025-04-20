@@ -11,7 +11,7 @@ import SwiftUI
 struct StatBadge: View {
     let title: String
     let value: String
-    let color: Color
+//    let color: Color
     
     var body: some View {
         HStack(alignment: .bottom) {
