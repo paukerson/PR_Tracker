@@ -12,7 +12,8 @@ import SwiftData
 struct LiftLogTab: View {
     
     @Query private var exercises: [Exercise]
-    @State private var showAddLiftSheet: Bool = true
+    @State private var showAddLiftSheet: Bool = false
+    @State private var selectedExerciseForLift: Exercise? = nil
     
     // sorting by totalLifts, hasGoal
     private var exercisesSorted: [Exercise] {
@@ -26,13 +27,13 @@ struct LiftLogTab: View {
     var body: some View {
         
         NavigationStack(path: $path) {
-            ExerciseListView(exercises: exercisesSorted)
+            ExerciseListView(exercises: exercisesSorted, selectedExerciseForLift: $selectedExerciseForLift)
                 .navigationDestination(for: Exercise.self) { exercise in
                     ExerciseDetailView(exercise: exercise)
                 }
         }
-        .sheet(isPresented: $showAddLiftSheet) {
-            AddLiftSheet(exercise: exercises.first!)
+        .sheet(item: $selectedExerciseForLift) { exercise in
+            AddLiftSheet(exercise: exercise)
                 .presentationDetents([.fraction(0.65), .fraction(0.9)])
         }
         

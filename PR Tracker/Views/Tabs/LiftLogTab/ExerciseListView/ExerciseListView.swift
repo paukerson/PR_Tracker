@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ExerciseListView: View {
     let exercises: [Exercise]
+    @Binding var selectedExerciseForLift: Exercise?
     
     // Constants for styling
     private let rowInsets = EdgeInsets(top: 4, leading: 10, bottom: 4, trailing: 8)
@@ -32,8 +33,8 @@ struct ExerciseListView: View {
             .listRowSeparator(.hidden)
             .listRowInsets(rowInsets)
             .swipeActions(edge: .trailing) {
-                addLiftButton
-                editExerciseButton
+                addLiftButton(for: exercise)
+                editExerciseButton(for: exercise)
             }
             .tint(.black)
         }
@@ -41,15 +42,15 @@ struct ExerciseListView: View {
     
     // MARK: - Swipe Actions
     
-    private var addLiftButton: some View {
+    private func addLiftButton(for exercise: Exercise) -> some View {
         Button {
-            // TODO: Add lift action
+            selectedExerciseForLift = exercise
         } label: {
-            Label("Lift", systemImage: "plus")
+            Label("Log Lift", systemImage: "plus")
         }
     }
     
-    private var editExerciseButton: some View {
+    private func editExerciseButton(for exercise: Exercise) -> some View {
         Button {
             // TODO: Edit action
         } label: {
