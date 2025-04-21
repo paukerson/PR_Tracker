@@ -12,6 +12,7 @@ import SwiftData
 struct LiftLogTab: View {
     
     @Query private var exercises: [Exercise]
+    @State private var showAddLiftSheet: Bool = true
     
     // sorting by totalLifts, hasGoal
     private var exercisesSorted: [Exercise] {
@@ -30,6 +31,11 @@ struct LiftLogTab: View {
                     ExerciseDetailView(exercise: exercise)
                 }
         }
+        .sheet(isPresented: $showAddLiftSheet) {
+            AddLiftSheet(exercise: exercises.first!)
+                .presentationDetents([.fraction(0.65), .fraction(0.9)])
+        }
+        
     }
 }
 

@@ -99,8 +99,6 @@ extension Array where Element == Double {
     exercise.addLift(timestamp: Date.init(timeIntervalSinceNow: -86400 * 6), weight: 80, reps: 3, rpe: 9)
     exercise.addLift(timestamp: Date.init(timeIntervalSinceNow: -86400 * 3), weight: 100, reps: 3, rpe: 9)
     
-//    exercise.addLift(weight: 60, reps: 10, rpe: 7)
-//    exercise.addLift(weight: 80, reps: 5, rpe: 8)
     exercise.addLift(weight: 100, reps: 1, rpe: 10) // PR
     
     exercise.addLift(timestamp: Date.init(timeIntervalSinceNow: 86400 * 3), weight: 90, reps: 3, rpe: 9)
