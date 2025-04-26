@@ -90,6 +90,11 @@ final class Exercise {
         self.equipment = Equipment(type: equipment)
     }
     
+    func setGoal(weight: Double, reps: Int) {
+        self.goalWeight = weight
+        self.goalReps = reps
+    }
+    
     func addLift(
         timestamp: Date = Date(),
         weight: Double,

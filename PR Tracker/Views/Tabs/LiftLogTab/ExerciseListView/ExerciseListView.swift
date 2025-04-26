@@ -21,6 +21,11 @@ struct ExerciseListView: View {
             .listRowSpacing(rowSpacing)
             .scrollIndicators(.never)
             .navigationTitle("Exercises")
+            .toolbar {
+                Button("Add Exercise") {
+                    // add exercise action
+                }
+            }
     }
     
     // MARK: - Subviews
