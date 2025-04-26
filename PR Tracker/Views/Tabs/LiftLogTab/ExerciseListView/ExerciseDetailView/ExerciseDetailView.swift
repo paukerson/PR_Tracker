@@ -12,7 +12,8 @@ import Charts
 
 struct ExerciseDetailView: View {
     @Bindable var exercise: Exercise
-    @State var showSheet: Bool = false
+//    @State var showSheet: Bool = false
+    @State private var presentedSheet: SheetType? = nil
     
     var body: some View {
         List {
@@ -34,14 +35,22 @@ struct ExerciseDetailView: View {
         .navigationTitle(exercise.name)
         .toolbar {
             Button("Add Lift") {
-                showSheet = true
+                presentedSheet = .addLift
             }
         }
-        .sheet(isPresented: $showSheet) {
-            AddLiftSheet(exercise: exercise)
-                .presentationDetents([.fraction(0.65), .fraction(0.9)])
+        .sheet(item: $presentedSheet) { sheetType in
+            switch sheetType {
+            case .addLift:
+                AddLiftSheet(exercise: exercise)
+                    .presentationDetents([.fraction(0.65), .fraction(0.9)])
+            }
         }
     }
+}
+
+enum SheetType: Identifiable {
+    case addLift
+    var id: Int { hashValue }
 }
 
 #Preview {
