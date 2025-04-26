@@ -67,7 +67,7 @@ struct AddLiftSheet: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save", action: saveLift)
+                    Button("Add", action: saveLift)
                         .disabled(!isValid)
                         .animation(.default, value: isValid)
                 }

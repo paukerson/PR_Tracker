@@ -12,6 +12,7 @@ import Charts
 
 struct ExerciseDetailView: View {
     @Bindable var exercise: Exercise
+    @State var showSheet: Bool = false
     
     var body: some View {
         List {
@@ -32,7 +33,13 @@ struct ExerciseDetailView: View {
         }
         .navigationTitle(exercise.name)
         .toolbar {
-            Button("Add Lift") { /* ... */ }
+            Button("Add Lift") {
+                showSheet = true
+            }
+        }
+        .sheet(isPresented: $showSheet) {
+            AddLiftSheet(exercise: exercise)
+                .presentationDetents([.fraction(0.65), .fraction(0.9)])
         }
     }
 }
